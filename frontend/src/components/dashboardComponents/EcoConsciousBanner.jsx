@@ -3,7 +3,7 @@ import React from "react";
 const EcoConsciousBanner = () => {
   return (
     <div
-      className="h-[100px] flex items-center bg-[#f4f4f7] rounded-lg shadow-lg overflow-hidden"
+      className="h-[100px] flex items-center bg-[#f4f4f7] rounded-lg shadow-lg overflow-hidden hidden md:flex"
     >
       <img
         src="./images/dashboard/mask group.png"

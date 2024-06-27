@@ -42,10 +42,7 @@ const CardGrid = () => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {cards.map((card, index) => (
-        <div
-          key={index}
-          className="relative bg-white shadow-lg rounded-lg "
-        >
+        <div key={index} className="relative bg-white shadow-lg rounded-lg ">
           <div className="relative">
             <img
               src={card.imgSrc}
@@ -53,14 +50,23 @@ const CardGrid = () => {
               className="w-full h-[120px] rounded-lg object-cover"
             />
             {card.info && (
-              <div className="absolute bottom-0 left-0 p-2 bg-black bg-opacity-50 text-white text-xs font-medium">
+              <div className="h-full w-full flex flex-col gap-4 rounded-lg justify-center items-center absolute bottom-0 left-0 p-2 bg-black bg-opacity-50 text-white text-xs font-montserrat font-semibold">
+                <img
+                  src='./images/dashboard/Group 935.png'
+                  alt="progress"
+                  className="w-[60px] h-[60px]"
+                />
                 {card.info}
               </div>
             )}
           </div>
 
           {card.infoIcon && (
-              <img src={card.infoIcon} alt="info" className="w-4 h-4 absolute right-[-4px] top-[-4px]" />
+            <img
+              src={card.infoIcon}
+              alt="info"
+              className="w-4 h-4 absolute right-[-4px] top-[-4px]"
+            />
           )}
 
           <div className="h-[60px] py-2 px-4 flex items-center align-center justify-between">

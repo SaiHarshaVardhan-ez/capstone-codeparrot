@@ -8,7 +8,7 @@ const DashBoard = () => {
   return (
     <>
       <Header />
-      <div className="w-full flex p-4 font-montserrat">
+      <div className="w-full flex flex-col p-4 font-montserrat lg:flex-row">
         <div className="flex flex-col gap-5">
           <CardGrid />
           <EcoConsciousBanner />
