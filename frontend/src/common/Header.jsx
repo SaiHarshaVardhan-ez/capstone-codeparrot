@@ -5,7 +5,7 @@ const Header = () => {
     <div className="flex items-center justify-between bg-white h-15 shadow-md">
       <div className="p-4">
         <img
-          src="./images/logo_dark.png"
+          src="./images/header/logo_dark.png"
           alt="capstoneLIFE"
           className="h-30 w-[200px]"
         />
@@ -13,7 +13,7 @@ const Header = () => {
       <div className="flex p-4 items-center">
         <div className="relative mx-3">
           <img
-            src="./images/message-icon.svg"
+            src="./images/header/message-icon.svg"
             alt="Messages Icon"
             className="w-6 h-6"
           />
@@ -23,7 +23,7 @@ const Header = () => {
         </div>
         <div className="relative mx-3">
           <img
-            src="./images/notification_icon.svg"
+            src="./images/header/notification_icon.svg"
             alt="Notification Icon"
             className="w-6 h-6"
           />
@@ -33,14 +33,14 @@ const Header = () => {
         </div>
         <div className="relative mx-3">
           <img
-            src="./images/other_icon.svg"
+            src="./images/header/other_icon.svg"
             alt="Other Icon"
             className="w-6 h-6"
           />
         </div>
         <div className="relative ml-2">
           <img
-            src="./images/profile_pic.svg"
+            src="./images/header/profile_pic.svg"
             alt="Profile"
             className="w-7 h-7 rounded-full"
           />

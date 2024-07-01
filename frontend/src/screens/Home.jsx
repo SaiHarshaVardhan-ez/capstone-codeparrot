@@ -4,7 +4,7 @@ import SignInComponent from "../components/homeComponents/SignInComponent";
 const Home = () => {
   return (
     <>
-        <SignInComponent />
+      <SignInComponent />
     </>
   );
 };

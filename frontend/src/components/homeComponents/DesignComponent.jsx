@@ -5,13 +5,13 @@ const DesignComponent = () => {
   return (
     <div className="flex flex-row place-items-center justify-center h-auto bg-transparent gap-10 ">
       <img
-        src="./images/vertical-line-home.png"
+        src="./images/home/vertical-line-home.png"
         alt="Decoration"
         className="h-[200px]"
       />
       <div className="flex flex-col items-start">
         <img
-          src="./images/logo.png"
+          src="./images/home/logo.png"
           alt="capstoneLIFE"
           className="h-30 w-[200px]"
         />

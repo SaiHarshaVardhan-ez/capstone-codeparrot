@@ -1,6 +1,6 @@
 // CardGrid.tsx
 import React from "react";
-
+import { Link } from "react-router-dom";
 const CardGrid = () => {
   const cards = [
     {
@@ -20,6 +20,7 @@ const CardGrid = () => {
       imgSrc: "./images/dashboard/group 953.png",
       info: "54% COMPLETION",
       infoIcon: "/images/dashboard/group 959.png",
+      onclick: "selection",
     },
     {
       title: "Master Portal",
@@ -44,23 +45,25 @@ const CardGrid = () => {
       {cards.map((card, index) => (
         <div key={index} className="relative bg-white shadow-lg rounded-lg ">
           <div className="relative">
-            <img
-              src={card.imgSrc}
-              alt={card.title}
-              className="w-full h-[120px] rounded-lg object-cover"
-            />
-            {card.info && (
-              <div className="h-full w-full flex flex-col gap-4 rounded-lg justify-center items-center absolute bottom-0 left-0 p-2 bg-black bg-opacity-50 text-white text-xs font-montserrat font-semibold">
-                <img
-                  src='./images/dashboard/Group 935.png'
-                  alt="progress"
-                  className="w-[60px] h-[60px]"
-                />
-                {card.info}
-              </div>
-            )}
-          </div>
+            <Link to="/selection">
+              <img
+                src={card.imgSrc}
+                alt={card.title}
+                className="w-full h-[120px] rounded-lg object-cover"
+              />
 
+              {card.info && (
+                <div className="h-full w-full flex flex-col gap-4 rounded-lg justify-center items-center absolute bottom-0 left-0 p-2 bg-black bg-opacity-50 text-white text-xs font-montserrat font-semibold">
+                  <img
+                    src="./images/dashboard/Group 935.png"
+                    alt="progress"
+                    className="w-[60px] h-[60px]"
+                  />
+                  {card.info}
+                </div>
+              )}
+            </Link>
+          </div>
           {card.infoIcon && (
             <img
               src={card.infoIcon}

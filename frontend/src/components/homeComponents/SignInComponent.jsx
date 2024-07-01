@@ -8,12 +8,12 @@ const SignInComponent = () => {
     <div
       className="bg-cover p-20 bg-center h-screen flex flex-col md:flex-row md:place-items-start md:justify-start justify-center gap-10"
       style={{
-        backgroundImage: "url('./images/login-bg.png')",
+        backgroundImage: "url('./images/home/login-bg.png')",
       }}
     >
       <div className="md:hidden flex flex-col items-start">
         <img
-          src="./images/logo.png"
+          src="./images/home/logo.png"
           alt="capstoneLIFE"
           className="h-30 w-[200px]"
         />
@@ -57,7 +57,7 @@ const Divider = () => {
 const GoogleSignInButton = () => {
   return (
     <button className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 bg-white opacity-70">
-      <img src="./images/image24.png" alt="Google" className="h-6 w-6 mr-2" />
+      <img src="./images/home/image24.png" alt="Google" className="h-6 w-6 mr-2" />
       <span className="text-black">Sign in with Google</span>
     </button>
   );
