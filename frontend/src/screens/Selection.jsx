@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../common/Header.jsx";
 import ProgressComponent from "../components/selectionComponents/ProgressComponent.jsx";
-import FinishesComponent from "../components/selectionComponents/FinishesComponents.jsx";
+import FinishesComponent from "../components/selectionComponents/FinishesComponent.jsx";
 import ImageSlider from "../components/selectionComponents/ImageSlider.jsx";
 
 const Selection = ({ selectedProgress, setSelectedProgress }) => {

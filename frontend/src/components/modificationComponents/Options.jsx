@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 
-const images = [
-  {
-    src: "./images/modification/options/Mask group.svg",
-    label: "Vitrified",
-    selected: true,
-  },
-  {
-    src: "./images/modification/options/Mask group-1.svg",
-    label: "Non-vitrified",
-    selected: false,
-  },
-];
+const images = {
+  FINISHES: [
+    {
+      src: "./images/modification/options/Mask group.svg",
+      label: "Vitrified",
+      selected: true,
+    },
+    {
+      src: "./images/modification/options/Mask group-1.svg",
+      label: "Non-vitrified",
+      selected: false,
+    },
+  ],
+};
 
 const Options = () => {
-  const [selectedImage, setSelectedImage] = useState(images[0]);
+  const [selectedImage, setSelectedImage] = useState(
+    images.FINISHES.find((image) => image.selected)
+  );
 
   return (
     <div className="p-4 flex flex-col gap-2 h-full w-[500px] bg-white rounded-lg. items-center">
@@ -29,7 +33,7 @@ const Options = () => {
       </div>
 
       {/* Image Selection */}
-      {images.map((image, index) => (
+      {images.FINISHES.map((image, index) => (
         <ImageCard
           key={index}
           src={image.src}
