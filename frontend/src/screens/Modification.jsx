@@ -11,7 +11,7 @@ const Overlay = ({ handleApplyClick, handleCancelClick }) => (
         <p className="text-gray-700 text-left mb-8 font-light text-[18px] leading-[24px]">
           {"Once you click on APPLY you will not be able to make changes to this selection. Click on APPLY to continue with your selection."}
         </p>
-        <div className="flex justify-end w-full space-x-8">
+        <div className="flex justify-end w-full gap-10 px-2">
           <button
             className="text-gray-400 font-bold text-[14px] tracking-wide"
             onClick={handleCancelClick}
