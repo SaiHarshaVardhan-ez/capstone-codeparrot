@@ -27,7 +27,7 @@ const images = {
   ],
 };
 
-const Options = ({ selectedProgress ,handleApplyClick}) => {
+const Options = ({ applySubmitted,selectedProgress ,handleApplyClick}) => {
   // Ensure selectedProgress is valid before accessing images
   const initialSelectedImage = selectedProgress
     ? images[selectedProgress.toString()]?.find((image) => image.selected)
@@ -48,7 +48,7 @@ const Options = ({ selectedProgress ,handleApplyClick}) => {
       </div>
 
       {/* Image Selection */}
-      {images[selectedProgress?.toString()]?.map((image, index) => (
+      {applySubmitted?(<><div className="w-[289px] h-[117px] text-red-600 text-sm font-normal font-['Montserrat']">You have customised this unit.<br/>Further modifications not allowed.<br/><br/>Date: 12-04-2024<br/><br/>Time: 3:45 p.m.</div></>):(<>{images[selectedProgress?.toString()]?.map((image, index) => (
         <ImageCard
           key={index}
           src={image.src}
@@ -66,7 +66,8 @@ const Options = ({ selectedProgress ,handleApplyClick}) => {
           alt="Arrow"
           className="ml-2 h-4 w-6"
         />
-      </button>
+      </button></>)}
+      
     </div>
   );
 };

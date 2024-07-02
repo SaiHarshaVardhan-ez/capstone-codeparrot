@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Display = ({ selectedProgress, activeItem }) => {
+  
   const buttons = {
     FLOORPLAN: {},
     STRUCTURE: {},
     FINISHES: {
-      FLOORPLAN: "FLOORS - FLOORING",
-      WALLS: "WALLS",
-      MAIN_DOOR: "MAIN DOOR",
+      FLOORPLAN: { name: "FLOORS - FLOORING", editable: true, edited: false },
+      WALLS: { name: "WALLS", editable: true, edited: false },
+      MAIN_DOOR: { name: "MAIN DOOR", editable: true, edited: false },
     },
     ELECTRICAL: {},
     PLUMBINGSANITARY: {},
     LIFT: {},
   };
+
+  const [seeingButton, setSeeingButton] = useState(true);
 
   const images = {
     FINISHES: "./images/modification/display/Mask group.svg",
@@ -50,10 +53,11 @@ const Display = ({ selectedProgress, activeItem }) => {
           <button
             key={key}
             className={`bg-purple-100 text-purple-700 font-bold text-xs px-4 py-2 rounded-lg ${
-              key !== "MAIN_DOOR" ? "opacity-40" : ""
+              key === seeingButton ? "opacity-40" : ""
             }`}
+            onClick={() => setSeeingButton(key)} // Pass key to setSeeingButton
           >
-            {buttons[selectedProgress.toString()][key]}
+            {buttons[selectedProgress.toString()][key].name}
           </button>
         ))}
       </div>
