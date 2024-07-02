@@ -33,6 +33,7 @@ const Overlay = ({ handleApplyClick, handleCancelClick }) => (
 );
 
 const Modification = ({ selectedProgress }) => {
+  const [seeingButton, setSeeingButton] = useState("");
   const [applySubmitted, setApplySubmitted] = useState(false);
   const [applyClicked, setApplyClicked] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
@@ -70,10 +71,13 @@ const Modification = ({ selectedProgress }) => {
             selectedProgress={selectedProgress}
           />
           <Display
+            seeingButton={seeingButton}
+            setSeeingButton={setSeeingButton}
             selectedProgress={selectedProgress}
             activeItem={activeItem}
           />
           <Options
+          seeingButton={seeingButton}
             applySubmitted={applySubmitted}
             selectedProgress={selectedProgress}
             handleApplyClick={handleOptionsApplyClick}

@@ -27,7 +27,12 @@ const images = {
   ],
 };
 
-const Options = ({ applySubmitted, selectedProgress, handleApplyClick }) => {
+const Options = ({
+  seeingButton,
+  applySubmitted,
+  selectedProgress,
+  handleApplyClick,
+}) => {
   // Ensure selectedProgress is valid before accessing images
   const initialSelectedImage = selectedProgress
     ? images[selectedProgress.toString()]?.find((image) => image.selected)
@@ -50,60 +55,68 @@ const Options = ({ applySubmitted, selectedProgress, handleApplyClick }) => {
           className="h-5 w-5"
         />
       </div>
-
-      {/* Image Selection */}
-      {applySubmitted ? (
+      {seeingButton === "WALLS" ? (
         <>
-          <ImageCard
-            src={selectedImage.src}
-            label={selectedImage.label}
-            isSelected={true}
-          />
-          <br />
-          <div className="w-[289px] h-[117px] text-red-600 text-sm font-normal font-['Montserrat']">
-            You have customised this unit.
-            <br />
-            Further modifications not allowed.
-            <br />
-            <br />
-            Date: {formattedDate}
-            <br />
-            <br />
-            Time: {formattedTime}
+          <div className="w-[289px] h-[77px] text-red-600 text-sm font-normal font-['Montserrat']">
+            This unit does NOT offer any modifications.
           </div>
-          <button className="w-full mt-10 bg-purple-500 text-white text-sm font-bold py-3 flex justify-center items-center rounded-lg hover:bg-purple-700 opacity-50">
-            <span>APPLY CHANGES</span>
-            <img
-              src="./images/modification/options/Arrow 1.png"
-              alt="Arrow"
-              className="ml-2 h-4 w-6"
-            />
-          </button>
         </>
       ) : (
         <>
-          {images[selectedProgress?.toString()]?.map((image, index) => (
-            <ImageCard
-              key={index}
-              src={image.src}
-              label={image.label}
-              isSelected={selectedImage?.label === image.label}
-              onClick={() => setSelectedImage(image)}
-            />
-          ))}
+          {applySubmitted && seeingButton !== "WALLS" ? (
+            <>
+              <ImageCard
+                src={selectedImage.src}
+                label={selectedImage.label}
+                isSelected={true}
+              />
+              <br />
+              <div className="w-[289px] h-[117px] text-red-600 text-sm font-normal font-['Montserrat']">
+                You have customised this unit.
+                <br />
+                Further modifications not allowed.
+                <br />
+                <br />
+                Date: {formattedDate}
+                <br />
+                <br />
+                Time: {formattedTime}
+              </div>
+              <button className="w-full mt-10 bg-purple-500 text-white text-sm font-bold py-3 flex justify-center items-center rounded-lg hover:bg-purple-700 opacity-50">
+                <span>APPLY CHANGES</span>
+                <img
+                  src="./images/modification/options/Arrow 1.png"
+                  alt="Arrow"
+                  className="ml-2 h-4 w-6"
+                />
+              </button>
+            </>
+          ) : (
+            <>
+              {images[selectedProgress?.toString()]?.map((image, index) => (
+                <ImageCard
+                  key={index}
+                  src={image.src}
+                  label={image.label}
+                  isSelected={selectedImage?.label === image.label}
+                  onClick={() => setSelectedImage(image)}
+                />
+              ))}
 
-          {/* Apply Changes Button */}
-          <button
-            onClick={handleApplyClick}
-            className="w-full mt-10 bg-purple-500 text-white text-sm font-bold py-3 flex justify-center items-center rounded-lg hover:bg-purple-700"
-          >
-            <span>APPLY CHANGES</span>
-            <img
-              src="./images/modification/options/Arrow 1.png"
-              alt="Arrow"
-              className="ml-2 h-4 w-6"
-            />
-          </button>
+              {/* Apply Changes Button */}
+              <button
+                onClick={handleApplyClick}
+                className="w-full mt-10 bg-purple-500 text-white text-sm font-bold py-3 flex justify-center items-center rounded-lg hover:bg-purple-700"
+              >
+                <span>APPLY CHANGES</span>
+                <img
+                  src="./images/modification/options/Arrow 1.png"
+                  alt="Arrow"
+                  className="ml-2 h-4 w-6"
+                />
+              </button>
+            </>
+          )}
         </>
       )}
     </div>

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Display = ({ selectedProgress, activeItem }) => {
+const Display = ({ seeingButton, setSeeingButton,selectedProgress, activeItem }) => {
   
   const buttons = {
     FLOORPLAN: {},
@@ -15,8 +15,8 @@ const Display = ({ selectedProgress, activeItem }) => {
     LIFT: {},
   };
 
-  const [seeingButton, setSeeingButton] = useState(true);
-
+  
+  console.log(seeingButton)
   const images = {
     FINISHES: "./images/modification/display/Mask group.svg",
     FLOORPLAN: "./images/modification/display/floorplan.png",
