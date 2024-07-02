@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const ProgressComponent = ({ setSelectedProgress }) => {
-  const [selectedProgress, setSelectedProgressLocal] = useState("FLOORPLAN");
+const ProgressComponent = ({ selectedProgress,setSelectedProgress }) => {
+  const [selectedProgressLocal, setSelectedProgressLocal] = useState(selectedProgress);
   const progress = {
     floorPlan: 0,
     structure: 0,
@@ -25,7 +25,7 @@ const ProgressComponent = ({ setSelectedProgress }) => {
               .toUpperCase()
               .replace(/([A-Z])/g, " $1")
               .trim()}
-            highlight={selectedProgress === key.toUpperCase()}
+            highlight={selectedProgressLocal === key.toUpperCase()}
             progress={progress[key]}
           />
         </div>
