@@ -9,7 +9,7 @@ const Overlay = ({ handleApplyClick, handleCancelClick }) => (
     <div className="fixed inset-0 flex items-center justify-center h-screen bg-transparent z-50">
       <div className="bg-white rounded-lg p-8 shadow-lg w-[300px] h-[250px] flex flex-col items-center">
         <p className="text-gray-700 text-left mb-8 font-light text-[18px] leading-[24px]">
-          {"Once you click on APPLY you will not be able to make changes to this selection. Click on APPLY to continue with your selection."}
+          Once you click on APPLY you will not be able to make changes to this selection. Click on APPLY to continue with your selection.
         </p>
         <div className="flex justify-end w-full gap-10 px-2">
           <button
@@ -33,6 +33,7 @@ const Overlay = ({ handleApplyClick, handleCancelClick }) => (
 
 const Modification = ({ selectedProgress }) => {
   const [applyClicked, setApplyClicked] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
 
   const handleApplyClick = () => {
     setApplyClicked(false);
@@ -60,8 +61,8 @@ const Modification = ({ selectedProgress }) => {
       <div className={`${applyClicked ? "relative z-30" : ""}`}>
         <Header />
         <div className="flex gap-10 px-6 p-4">
-          <FinishesList selectedProgress={selectedProgress} />
-          <Display selectedProgress={selectedProgress} />
+          <FinishesList activeItem={activeItem} setActiveItem={setActiveItem} selectedProgress={selectedProgress} />
+          <Display selectedProgress={selectedProgress} activeItem={activeItem} />
           <Options
             selectedProgress={selectedProgress}
             handleApplyClick={handleOptionsApplyClick}

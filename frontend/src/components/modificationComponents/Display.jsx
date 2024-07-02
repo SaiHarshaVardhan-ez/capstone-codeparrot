@@ -1,17 +1,17 @@
 import React from "react";
 
-const Display = ({ selectedProgress }) => {
+const Display = ({ selectedProgress, activeItem }) => {
   const buttons = {
     FLOORPLAN: {},
-    STRUCTRE:{},
+    STRUCTURE: {},
     FINISHES: {
       FLOORPLAN: "FLOORS - FLOORING",
       WALLS: "WALLS",
       MAIN_DOOR: "MAIN DOOR",
     },
     ELECTRICAL: {},
-    PLUMBINGSANITARY:{},
-    LIFT:{}
+    PLUMBINGSANITARY: {},
+    LIFT: {},
   };
 
   const images = {
@@ -28,14 +28,20 @@ const Display = ({ selectedProgress }) => {
         </span>
         <span className="font-normal text-sm">
           &gt;&gt;
-          {selectedProgress.toString().toLowerCase().charAt(0).toUpperCase() +
+          {selectedProgress
+            .toString()
+            .toLowerCase()
+            .charAt(0)
+            .toUpperCase() +
             selectedProgress.toString().toLowerCase().slice(1)}
         </span>
       </div>
 
       {/* Title Section */}
       <div className="self-start mb-2 text-orange-600">
-        <h1 className="font-bold text-xm md:text-3xl">Foyer</h1>
+        <h1 className="font-bold text-xm md:text-3xl">
+          {activeItem || "Select an item"}
+        </h1>
       </div>
 
       {/* Tabs Section */}
@@ -52,30 +58,24 @@ const Display = ({ selectedProgress }) => {
         ))}
       </div>
 
-      {/* Image Section */}
       <div className="relative w-full max-w-4xl mb-2">
-        {/* Current Image Number */}
         <img
           src={images[selectedProgress.toString()]}
           alt="Current Selection"
-          className="w-full h-96 rounded-md "
+          className="w-full h-full rounded-md "
         />
         <div className="absolute top-[-40px] right-4 text-gray-500 text-xs font-bold">
           01 / 03
         </div>
-        {/* Black Overlay */}
         <div className="absolute inset-0 bg-black opacity-50 rounded-md"></div>
-
-        {/* 360 Degree Icon */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 text-white text-lg font-bold">
           <img src="./images/modification/display/Group 937.svg" alt="360" />
         </div>
-
-        {/* Current Image Number */}
         <div className="absolute top-4 right-4 text-gray-500 text-xs font-bold">
           <img
             src="./images/modification/display/Group.svg"
             alt="full-screen"
+            className="h-full w-full"
           />
         </div>
       </div>
