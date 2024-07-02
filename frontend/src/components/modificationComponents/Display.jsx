@@ -2,21 +2,22 @@ import React from "react";
 
 const Display = ({ selectedProgress }) => {
   const buttons = {
+    FLOORPLAN: {},
+    STRUCTRE:{},
     FINISHES: {
       FLOORPLAN: "FLOORS - FLOORING",
       WALLS: "WALLS",
       MAIN_DOOR: "MAIN DOOR",
     },
-
-    FLOORPLAN:{
-    }
+    ELECTRICAL: {},
+    PLUMBINGSANITARY:{},
+    LIFT:{}
   };
 
-  const images={
+  const images = {
     FINISHES: "./images/modification/display/Mask group.svg",
     FLOORPLAN: "./images/modification/display/floorplan.png",
-  }
-
+  };
 
   return (
     <div className="relative flex flex-col items-left bg-white p-3 h-screen w-full gap-3">
@@ -26,7 +27,6 @@ const Display = ({ selectedProgress }) => {
           Dashboard &gt;&gt; My Choices
         </span>
         <span className="font-normal text-sm">
-          {" "}
           &gt;&gt;
           {selectedProgress.toString().toLowerCase().charAt(0).toUpperCase() +
             selectedProgress.toString().toLowerCase().slice(1)}
@@ -40,15 +40,16 @@ const Display = ({ selectedProgress }) => {
 
       {/* Tabs Section */}
       <div className="flex gap-2 mb-2 items-left">
-        <button className="bg-purple-100 text-purple-700 font-bold text-xs px-4 py-2 rounded-lg opacity-40">
-          {buttons.FINISHES.FLOORPLAN}
-        </button>
-        <button className="bg-purple-100 text-purple-700 font-bold text-xs px-4 py-2 rounded-lg opacity-40">
-          {buttons.FINISHES.WALLS}
-        </button>
-        <button className="bg-purple-100 text-purple-700 font-bold text-xs px-4 py-2 rounded-lg">
-          {buttons.FINISHES.MAIN_DOOR}
-        </button>
+        {Object.keys(buttons[selectedProgress.toString()]).map((key) => (
+          <button
+            key={key}
+            className={`bg-purple-100 text-purple-700 font-bold text-xs px-4 py-2 rounded-lg ${
+              key !== "MAIN_DOOR" ? "opacity-40" : ""
+            }`}
+          >
+            {buttons[selectedProgress.toString()][key]}
+          </button>
+        ))}
       </div>
 
       {/* Image Section */}

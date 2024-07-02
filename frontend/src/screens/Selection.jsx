@@ -4,7 +4,8 @@ import ProgressComponent from "../components/selectionComponents/ProgressCompone
 import FinishesComponent from "../components/selectionComponents/FinishesComponent.jsx";
 import ImageSlider from "../components/selectionComponents/ImageSlider.jsx";
 
-const Selection = ({ selectedProgress, setSelectedProgress }) => {
+const Selection = () => {
+  const [selectedProgress, setSelectedProgress] = useState("FLOORPLAN");
   const [selectedImage, setSelectedImage] = useState({
     src: "./images/selection/Mask group.png",
     label: "Living Room",
@@ -14,9 +15,20 @@ const Selection = ({ selectedProgress, setSelectedProgress }) => {
     <>
       <Header />
       <div className="flex font-montserrat p-4 gap-10">
-        <ProgressComponent setSelectedProgress={setSelectedProgress} />
-        <FinishesComponent selectedImage={selectedImage} selectedProgress={selectedProgress} />
-        <ImageSlider selectedImage={selectedImage} setSelectedImage={setSelectedImage} selectedProgress={selectedProgress} />
+        <ProgressComponent
+          selectedProgress={selectedProgress}
+          setSelectedProgress={setSelectedProgress}
+        />
+        <FinishesComponent
+          selectedImage={selectedImage}
+          setSelectedImage={setSelectedImage}
+          selectedProgress={selectedProgress}
+        />
+        <ImageSlider
+          selectedImage={selectedImage}
+          setSelectedImage={setSelectedImage}
+          selectedProgress={selectedProgress}
+        />
       </div>
     </>
   );
