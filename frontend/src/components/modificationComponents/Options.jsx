@@ -27,7 +27,7 @@ const images = {
   ],
 };
 
-const Options = ({ selectedProgress }) => {
+const Options = ({ selectedProgress ,handleApplyClick}) => {
   // Ensure selectedProgress is valid before accessing images
   const initialSelectedImage = selectedProgress
     ? images[selectedProgress.toString()]?.find((image) => image.selected)
@@ -59,7 +59,7 @@ const Options = ({ selectedProgress }) => {
       ))}
 
       {/* Apply Changes Button */}
-      <button className="w-full mt-10 bg-purple-500 text-white text-sm font-bold py-3 flex justify-center items-center rounded-lg hover:bg-purple-700">
+      <button onClick={handleApplyClick} className="w-full mt-10 bg-purple-500 text-white text-sm font-bold py-3 flex justify-center items-center rounded-lg hover:bg-purple-700">
         <span>APPLY CHANGES</span>
         <img
           src="./images/modification/options/Arrow 1.png"
