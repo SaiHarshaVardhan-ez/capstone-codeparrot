@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ProgressComponent = ({ selectedProgress="FLOORPLAN", setSelectedProgress }) => {
+const ProgressComponent = ({ setSelectedProgress }) => {
+  const [selectedProgress, setSelectedProgressLocal] = useState("FLOORPLAN");
   const progress = {
     floorPlan: 0,
     structure: 0,
@@ -11,6 +12,7 @@ const ProgressComponent = ({ selectedProgress="FLOORPLAN", setSelectedProgress }
   };
 
   const handleCardClick = (title) => {
+    setSelectedProgressLocal(title);
     setSelectedProgress(title);
   };
 
@@ -37,7 +39,7 @@ const ProgressCard = ({ title, highlight, progress }) => {
     <div
       className={`p-4 flex w-[200px] justify-start items-center ${
         highlight ? "bg-[#6B5EA9] h-[90px]" : "bg-[#A6D5E2] opacity-60 h-[45px]"
-      } rounded-md cursor-pointer`}
+      } rounded-md`}
     >
       {highlight && progress !== undefined && (
         <div className="w-full text-center">
